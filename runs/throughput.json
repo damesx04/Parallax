@@ -1,0 +1,67 @@
+{
+ "G": 4,
+ "updates": [
+  {
+   "rollout_s": 19.975605964660645,
+   "update_s": 69.05580282211304,
+   "total_s": 89.03140878677368,
+   "n_samples": 4,
+   "mem_gb": 8.444919808,
+   "mean_tool_calls": 1.0,
+   "mean_turns_per_episode": 1.0
+  },
+  {
+   "rollout_s": 24.37609601020813,
+   "update_s": 0.15448904037475586,
+   "total_s": 24.530585050582886,
+   "n_samples": 0,
+   "mem_gb": 8.434434048,
+   "mean_tool_calls": 1.0,
+   "mean_turns_per_episode": 1.25
+  }
+ ],
+ "dev_eval_s_per_episode": 4.635664224624634,
+ "s_per_turn_fwd_bwd_with_ref": 17.303866624832153,
+ "turn_times": [
+  17.842714071273804,
+  16.765019178390503
+ ],
+ "observed_turns_per_episode": 1.125,
+ "s_per_episode_rollout": 5.543962746858597,
+ "assumed_turns_per_episode": 2.5,
+ "s_per_page_worst_case": 195.21451723575592,
+ "projections": {
+  "P1_U120": {
+   "pages_per_update": 1,
+   "updates": 120,
+   "episodes": 480,
+   "hours_worst_case": 6.51
+  },
+  "P2_U60": {
+   "pages_per_update": 2,
+   "updates": 60,
+   "episodes": 480,
+   "hours_worst_case": 6.51
+  },
+  "P2_U80": {
+   "pages_per_update": 2,
+   "updates": 80,
+   "episodes": 640,
+   "hours_worst_case": 8.68
+  },
+  "P2_U120": {
+   "pages_per_update": 2,
+   "updates": 120,
+   "episodes": 960,
+   "hours_worst_case": 13.01
+  },
+  "P4_U40": {
+   "pages_per_update": 4,
+   "updates": 40,
+   "episodes": 640,
+   "hours_worst_case": 8.68
+  }
+ },
+ "final_eval_hours_3_policies": 0.93,
+ "peak_mem_gb": 9.608921088
+}

@@ -1,0 +1,57 @@
+{
+ "updates": 2,
+ "losses": [
+  null,
+  -0.0423948384821415
+ ],
+ "kls": [
+  null,
+  0.0003163424757900657
+ ],
+ "n_samples": [
+  0,
+  20
+ ],
+ "grad_norms": [
+  null,
+  0.7461522817611694
+ ],
+ "all_finite": true,
+ "updates_with_samples": 1,
+ "mean_reward_per_update": [
+  0.5,
+  0.21875
+ ],
+ "dev": [
+  {
+   "step": 0,
+   "n": 4,
+   "mean_reward": 0.25,
+   "success_rate": 0.25,
+   "mean_tool_calls": 1.0,
+   "wrong_target_rate": 0.75,
+   "invalid_outputs": 0
+  },
+  {
+   "step": 2,
+   "n": 4,
+   "mean_reward": 0.25,
+   "success_rate": 0.25,
+   "mean_tool_calls": 1.0,
+   "wrong_target_rate": 0.75,
+   "invalid_outputs": 0
+  }
+ ],
+ "best": {
+  "step": 2,
+  "mean_reward": 0.25
+ },
+ "config": {
+  "G": 4,
+  "temperature": 1.0,
+  "lr": 2e-05,
+  "kl_beta": 0.02,
+  "grad_clip": 1.0,
+  "pages_per_update": 2
+ }
+}
