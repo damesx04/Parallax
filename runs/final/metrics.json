@@ -1,0 +1,208 @@
+{
+ "policies": {
+  "baseline_a": {
+   "episodes": 240,
+   "success": 0,
+   "success_rate": 0.0,
+   "W": 240,
+   "K": 240,
+   "N_noclick": 0,
+   "noclick_rate": 0.0,
+   "W_over_K": 1.0,
+   "C": 240,
+   "mean_tool_calls": 1.0,
+   "verify_calls": 0,
+   "invalid_outputs": 0,
+   "terminations": {
+    "success": 0,
+    "wrong_target": 240,
+    "step_limit": 0
+   },
+   "step_limit_rate": 0.0,
+   "per_category": {
+    "decoy_v1": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 40,
+     "verify_calls": 0
+    },
+    "decoy_v2": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 40,
+     "verify_calls": 0
+    },
+    "occluded_v1": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 40,
+     "verify_calls": 0
+    },
+    "occluded_v2": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 40,
+     "verify_calls": 0
+    },
+    "reflow_v1": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 40,
+     "verify_calls": 0
+    },
+    "reflow_v2": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 40,
+     "verify_calls": 0
+    }
+   }
+  },
+  "baseline_b": {
+   "episodes": 240,
+   "success": 81,
+   "success_rate": 0.3375,
+   "W": 155,
+   "K": 236,
+   "N_noclick": 4,
+   "noclick_rate": 0.016666666666666666,
+   "W_over_K": 0.6567796610169492,
+   "C": 490,
+   "mean_tool_calls": 2.0416666666666665,
+   "verify_calls": 245,
+   "invalid_outputs": 0,
+   "terminations": {
+    "success": 81,
+    "wrong_target": 155,
+    "step_limit": 4
+   },
+   "step_limit_rate": 0.016666666666666666,
+   "per_category": {
+    "decoy_v1": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 80,
+     "verify_calls": 40
+    },
+    "decoy_v2": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 36,
+     "tool_calls": 88,
+     "verify_calls": 44
+    },
+    "occluded_v1": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 80,
+     "verify_calls": 40
+    },
+    "occluded_v2": {
+     "n": 40,
+     "success": 1,
+     "wrong_target": 39,
+     "tool_calls": 82,
+     "verify_calls": 41
+    },
+    "reflow_v1": {
+     "n": 40,
+     "success": 40,
+     "wrong_target": 0,
+     "tool_calls": 80,
+     "verify_calls": 40
+    },
+    "reflow_v2": {
+     "n": 40,
+     "success": 40,
+     "wrong_target": 0,
+     "tool_calls": 80,
+     "verify_calls": 40
+    }
+   }
+  },
+  "trained": {
+   "episodes": 240,
+   "success": 81,
+   "success_rate": 0.3375,
+   "W": 159,
+   "K": 240,
+   "N_noclick": 0,
+   "noclick_rate": 0.0,
+   "W_over_K": 0.6625,
+   "C": 482,
+   "mean_tool_calls": 2.0083333333333333,
+   "verify_calls": 240,
+   "invalid_outputs": 0,
+   "terminations": {
+    "success": 81,
+    "wrong_target": 159,
+    "step_limit": 0
+   },
+   "step_limit_rate": 0.0,
+   "per_category": {
+    "decoy_v1": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 80,
+     "verify_calls": 40
+    },
+    "decoy_v2": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 80,
+     "verify_calls": 40
+    },
+    "occluded_v1": {
+     "n": 40,
+     "success": 0,
+     "wrong_target": 40,
+     "tool_calls": 80,
+     "verify_calls": 40
+    },
+    "occluded_v2": {
+     "n": 40,
+     "success": 1,
+     "wrong_target": 39,
+     "tool_calls": 82,
+     "verify_calls": 40
+    },
+    "reflow_v1": {
+     "n": 40,
+     "success": 40,
+     "wrong_target": 0,
+     "tool_calls": 80,
+     "verify_calls": 40
+    },
+    "reflow_v2": {
+     "n": 40,
+     "success": 40,
+     "wrong_target": 0,
+     "tool_calls": 80,
+     "verify_calls": 40
+    }
+   }
+  }
+ },
+ "M1": 33.75,
+ "degenerate": false,
+ "degenerate_reasons": [],
+ "definitions": {
+  "W_P": "episodes with a wrong-target click",
+  "M1": "100*(1 - W_trained/W_baselineA), undefined if W_baselineA=0",
+  "K_P": "episodes with at least one target-directed click (outcome success or wrong_target)",
+  "N_noclick": "episodes with no target-directed click (abstention, incl. dismiss-only stalling)",
+  "W_over_K": "wrong-target episodes per clicking episode",
+  "degenerate": "success below a baseline, or no-click rate or step-limit rate > baseline A's + 0.1",
+  "undefined": "reported as JSON null"
+ }
+}

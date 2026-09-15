@@ -1,0 +1,4 @@
+{"step": 0, "n": 24, "mean_reward": 0.16666666666666666, "success_rate": 0.16666666666666666, "mean_tool_calls": 1.0, "wrong_target_rate": 0.8333333333333334, "invalid_outputs": 0}
+{"step": 10, "n": 24, "mean_reward": 0.16666666666666666, "success_rate": 0.16666666666666666, "mean_tool_calls": 1.0, "wrong_target_rate": 0.8333333333333334, "invalid_outputs": 0}
+{"step": 20, "n": 24, "mean_reward": 0.20833333333333334, "success_rate": 0.20833333333333334, "mean_tool_calls": 1.3333333333333333, "wrong_target_rate": 0.7083333333333334, "invalid_outputs": 0}
+{"step": 30, "n": 24, "mean_reward": 0.25, "success_rate": 0.25, "mean_tool_calls": 1.25, "wrong_target_rate": 0.7083333333333334, "invalid_outputs": 0}

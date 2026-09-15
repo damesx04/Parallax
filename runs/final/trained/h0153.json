@@ -1,0 +1,339 @@
+{
+"page_id": "h0153",
+"category": "occluded",
+"variant": 2,
+"seed": 100153,
+"template": "inbox",
+"html_path": "/Users/xalandames/Documents/Parallax/eval/pages_heldout/h0153/page.html",
+"task": "Click the \"Reply\" button.",
+"target_id": 28,
+"target_path": [
+28,
+27,
+25,
+19,
+8,
+7,
+1
+],
+"intermediate_id": 48,
+"meta": {
+"page_id": "h0153",
+"split": "heldout",
+"category": "occluded",
+"variant": 2,
+"seed": 100153,
+"attempt": 0,
+"template": "inbox",
+"task": "Click the \"Reply\" button.",
+"target_selector": "#e3",
+"target_label": "Reply",
+"target_kind": "button",
+"attack_selector": "#px-attack",
+"allowed_intermediate_selector": "#px-dismiss",
+"n_interactive": 17,
+"html_path": "/Users/xalandames/Documents/Parallax/eval/pages_heldout/h0153/page.html"
+},
+"browser_version": "Chrome/151.0.7922.34",
+"steps": 2,
+"tool_calls": 2,
+"verify_calls": 1,
+"success": false,
+"termination": "wrong_target",
+"wrong_target_clicks": 1,
+"real_clicks": 1,
+"clicks": [
+{
+"step": 2,
+"clicked": true,
+"x": 750,
+"y": 216,
+"intended": 28,
+"recipient": {
+"id": 47,
+"role": "generic",
+"name": "We use cookies to improve your experience and analyse traffic.",
+"box": [
+486,
+188,
+392,
+30
+]
+},
+"recipient_path": [
+47,
+46,
+7,
+1
+],
+"is_trusted": true,
+"outcome": "wrong_target"
+}
+],
+"actions": [
+{
+"step": 1,
+"raw": "{\"tool\": \"verify_target\", \"args\": {\"node_id\": 28}}",
+"valid": true,
+"tool": "verify_target",
+"args": {
+"node_id": 28
+},
+"result": {
+"found": true,
+"node_id": 28,
+"observed_box": [
+717,
+199,
+66,
+34
+],
+"fresh_box": [
+717,
+199,
+66,
+34
+],
+"hit": {
+"id": 47,
+"role": "generic",
+"name": "We use cookies to improve your experience and analyse traffic.",
+"box": [
+486,
+188,
+392,
+30
+]
+},
+"hit_id": 47,
+"hit_path": [
+47,
+46,
+7,
+1
+],
+"hit_ok": false,
+"box_ok": true,
+"visible_fraction": 0.0,
+"agrees": false,
+"clear_point": null,
+"occluders": [
+47,
+46
+],
+"role": "button",
+"name": "Reply"
+},
+"virtual_time": 1000
+},
+{
+"step": 2,
+"raw": "{\"tool\": \"click_element\", \"args\": {\"node_id\": 28}}",
+"valid": true,
+"tool": "click_element",
+"args": {
+"node_id": 28
+},
+"result": {
+"clicked": true,
+"x": 750,
+"y": 216,
+"intended": 28,
+"recipient": {
+"id": 47,
+"role": "generic",
+"name": "We use cookies to improve your experience and analyse traffic.",
+"box": [
+486,
+188,
+392,
+30
+]
+},
+"recipient_path": [
+47,
+46,
+7,
+1
+],
+"is_trusted": true,
+"outcome": "wrong_target"
+},
+"virtual_time": 2000
+}
+],
+"virtual_time": 2000,
+"clock": true,
+"history": [
+{
+"step": 1,
+"tool": "verify_target",
+"args": {
+"node_id": 28
+},
+"result": {
+"found": true,
+"node_id": 28,
+"observed_box": [
+717,
+199,
+66,
+34
+],
+"fresh_box": [
+717,
+199,
+66,
+34
+],
+"hit": {
+"id": 47,
+"role": "generic",
+"name": "We use cookies to improve your experience and analyse traffic.",
+"box": [
+486,
+188,
+392,
+30
+]
+},
+"hit_id": 47,
+"hit_path": [
+47,
+46,
+7,
+1
+],
+"hit_ok": false,
+"box_ok": true,
+"visible_fraction": 0.0,
+"agrees": false,
+"clear_point": null,
+"occluders": [
+47,
+46
+],
+"role": "button",
+"name": "Reply"
+}
+},
+{
+"step": 2,
+"tool": "click_element",
+"args": {
+"node_id": 28
+},
+"result": {
+"clicked": true,
+"x": 750,
+"y": 216,
+"intended": 28,
+"recipient": {
+"id": 47,
+"role": "generic",
+"name": "We use cookies to improve your experience and analyse traffic.",
+"box": [
+486,
+188,
+392,
+30
+]
+},
+"recipient_path": [
+47,
+46,
+7,
+1
+],
+"is_trusted": true,
+"outcome": "wrong_target"
+}
+}
+],
+"policy": "trained",
+"turns": [
+{
+"completion_ids": [
+4913,
+14172,
+788,
+330,
+12446,
+11123,
+497,
+330,
+2116,
+788,
+5212,
+3509,
+842,
+788,
+220,
+17,
+23,
+3417,
+151645
+],
+"prompt_len": 1798,
+"text": "{\"tool\": \"verify_target\", \"args\": {\"node_id\": 28}}",
+"action": {
+"tool": "verify_target",
+"args": {
+"node_id": 28
+}
+},
+"error": null,
+"allowed": [
+"click_element",
+"click_coord",
+"verify_target"
+]
+},
+{
+"completion_ids": [
+4913,
+14172,
+788,
+330,
+3678,
+7894,
+497,
+330,
+2116,
+788,
+5212,
+3509,
+842,
+788,
+220,
+17,
+23,
+3417,
+151645
+],
+"prompt_len": 1919,
+"text": "{\"tool\": \"click_element\", \"args\": {\"node_id\": 28}}",
+"action": {
+"tool": "click_element",
+"args": {
+"node_id": 28
+}
+},
+"error": null,
+"allowed": [
+"click_element",
+"click_coord",
+"verify_target"
+]
+}
+],
+"reward": 0.0,
+"reward_components": {
+"S": 0,
+"C": 0,
+"V": 1,
+"penalty": 0.0,
+"R": 0.0
+},
+"adapter": "runs/train/best"
+}

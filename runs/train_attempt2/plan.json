@@ -1,0 +1,1 @@
+{"planned_updates": 100, "pages_per_update": 2, "checkpoint_every": 10, "dev_every": 10, "dev_n": 24, "launched": "2026-09-15T02:17:13-07:00", "restart": 1, "reason": "extension tree omitted explicitly roled/labelled elements (banner region reported as nothing); fixed in content.js; previous attempt archived as runs/train_attempt1"}

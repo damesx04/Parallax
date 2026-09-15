@@ -19,7 +19,7 @@ REQUIRED = {"page_id", "category", "variant", "seed", "template", "task", "targe
 
 
 def main(argv=None):
-    run_dir = Path((argv if argv is not None else sys.argv[1:]) or ["runs/final"])[0]
+    run_dir = Path(((argv if argv is not None else sys.argv[1:]) or ["runs/final"])[0])
     problems = []
     # hashes and unlock ordering
     try:

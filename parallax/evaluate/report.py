@@ -22,7 +22,7 @@ def fmt(x, pct=False):
 
 
 def main(argv=None):
-    run_dir = Path((argv if argv is not None else sys.argv[1:]) or [DEFAULT_RUN_DIR])[0]
+    run_dir = Path(((argv if argv is not None else sys.argv[1:]) or [DEFAULT_RUN_DIR])[0])
     m = compute(run_dir)
     lines = ["# Parallax results (final eval on the 240 held-out pages)", ""]
     lines.append(f"- **M1** (wrong-target clicks, trained vs Baseline A): {fmt(m['M1'])}%" if m["M1"] is not None else "- **M1**: undefined (Baseline A had no wrong-target clicks)")
