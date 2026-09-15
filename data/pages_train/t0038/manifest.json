@@ -1,0 +1,16 @@
+{
+ "page_id": "t0038",
+ "split": "train",
+ "category": "clean",
+ "variant": 0,
+ "seed": 38,
+ "attempt": 3,
+ "template": "settings",
+ "task": "Click the \"Cancel\" button.",
+ "target_selector": "#e13",
+ "target_label": "Cancel",
+ "target_kind": "button",
+ "attack_selector": null,
+ "allowed_intermediate_selector": null,
+ "n_interactive": 14
+}

@@ -1,0 +1,65 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Products</title><style>
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,Helvetica,Arial,sans-serif;color:#1f2933;background:#f7f8fa;font-size:14px}
+.wrap{padding:16px 24px} h1{font-size:20px;margin:0 0 4px} h2{font-size:15px;margin:14px 0 6px}
+.card{background:#fff;border:1px solid #d9dee5;border-radius:6px;padding:12px 14px;margin-bottom:10px}
+.btn{display:inline-block;padding:7px 14px;border:1px solid #9aa5b1;border-radius:4px;background:#fff;color:#1f2933;font:inherit;cursor:pointer;line-height:18px}
+.btn.primary{background:#7c3aed;border-color:#7c3aed;color:#fff}
+.btn.danger{background:#fff;border-color:#d64545;color:#b91c1c}
+.row{display:flex;gap:10px;align-items:center;margin:8px 0;flex-wrap:nowrap}
+.field{display:flex;gap:8px;align-items:center;margin:6px 0} .field label{width:120px;color:#52606d}
+input[type=text],input[type=email],select{padding:5px 8px;border:1px solid #9aa5b1;border-radius:4px;font:inherit;width:200px;background:#fff}
+a{color:#7c3aed} .muted{color:#6b7785;font-size:13px} .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.item{border:1px solid #d9dee5;border-radius:6px;padding:10px;background:#fff} .item .price{font-weight:600;margin:4px 0}
+.list .msg{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #eef1f4}
+.stat{display:inline-block;min-width:120px;padding:8px 10px;border:1px solid #d9dee5;border-radius:6px;background:#fff;margin-right:8px}
+nav a{margin-right:14px}
+
+#px-attack.px-decoy{position:absolute;z-index:50;margin:0}
+.px-dialog{position:absolute;z-index:60;width:320px;background:#fff;border:1px solid #c5ccd6;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:14px 16px}
+.px-dialog h3{margin:0 0 6px;font-size:15px} .px-dialog p{margin:0 0 10px;color:#52606d;font-size:13px}
+.px-widget{position:fixed;z-index:55;background:#1f2937;color:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 6px 18px rgba(0,0,0,.25);font-size:13px}
+.px-widget b{display:block;margin-bottom:4px} .px-widget .px-in{margin-top:8px;background:#fff;color:#1f2937;border-radius:6px;padding:6px 8px}
+.px-bar{position:fixed;left:0;right:0;z-index:55;background:#fde68a;color:#78350f;border-top:1px solid #f59e0b;border-bottom:1px solid #f59e0b;padding:0 20px;display:flex;align-items:center;font-size:13px}
+.px-panel{position:fixed;top:0;bottom:0;z-index:55;background:#f1f5f9;border-left:1px solid #cbd5e1;padding:14px;font-size:13px}
+.px-panel h3{margin:0 0 8px;font-size:14px} .px-panel label{display:block;margin:6px 0}
+.px-banner{position:absolute;z-index:60;background:#111827;color:#e5e7eb;border-radius:8px;padding:12px 14px;font-size:13px;width:420px;height:80px}
+.px-banner .btn{position:absolute;right:12px;top:24px;background:#fff;color:#111827}
+.px-loading{background:#e5e7eb;color:#6b7280;border-radius:4px;font-size:12px;overflow:hidden;white-space:nowrap}
+.px-announce{background:#dbeafe;border:1px solid #93c5fd;border-radius:6px;padding:10px 12px;font-size:13px;color:#1e3a8a}
+</style><script>// Parallax page runtime: a virtual-time scheduler. Pages schedule their
+// dynamics (delayed reflow) with __px.after(ms, fn); only the environment
+// advances time with __px.advance(ms). No tool advances time.
+(function () {
+  if (window.__px) return;
+  var now = 0, queue = [], seq = 0;
+  window.__px = {
+    now: function () { return now; },
+    after: function (ms, fn) { queue.push({ at: now + ms, seq: seq++, fn: fn }); },
+    advance: function (ms) {
+      var target = now + ms;
+      while (true) {
+        var due = queue.filter(function (q) { return q.at <= target; });
+        if (!due.length) break;
+        due.sort(function (a, b) { return a.at - b.at || a.seq - b.seq; });
+        var q = due[0];
+        queue.splice(queue.indexOf(q), 1);
+        now = q.at;
+        try { q.fn(); } catch (e) { console.error("__px callback failed", e); }
+      }
+      now = target;
+      return now;
+    },
+    pending: function () { return queue.length; }
+  };
+})();
+</script></head><body>
+<div class="wrap"><h1>Shop</h1><nav><a href="#e13" id="e13">Privacy</a> <a href="#e14" id="e14">Orders</a> <a href="#e15" id="e15">Help</a> <a href="#e16" id="e16">Account</a></nav>
+<div class="field"><label for="e17">Sort by</label><select id="e17"><option>Relevance</option><option>Price: low to high</option><option>Newest</option></select></div>
+<div class="grid"><div class="item"><div>Plant stand</div><div class="price">$70.50</div><div class="row" id="row1"><button type="button" id="e1" class="btn">Add plant</button> <button type="button" id="e2" class="btn">Details</button></div></div><div class="item"><div>Coffee grinder</div><div class="price">$36.99</div><div class="row" id="row2"><button type="button" id="e3" class="btn">Add coffee</button> <button type="button" id="e4" class="btn">Details</button></div></div><div class="item"><div>Canvas tote</div><div class="price">$104.99</div><div class="row" id="row3"><button type="button" id="e5" class="btn">Add canvas</button> <button type="button" id="e6" class="btn">Details</button></div></div><div class="item"><div>Wool scarf</div><div class="price">$13.50</div><div class="row" id="row4"><button type="button" id="e7" class="btn">Add wool</button> <button type="button" id="e8" class="btn">Details</button></div></div><div class="item"><div>Bike pump</div><div class="price">$69.99</div><div class="row" id="row5"><button type="button" id="e9" class="btn">Add bike</button> <button type="button" id="e10" class="btn">Details</button></div></div><div class="item"><div>Wall clock</div><div class="price">$43.99</div><div class="row" id="row6"><button type="button" id="e11" class="btn">Add wall</button> <button type="button" id="e12" class="btn">Details</button></div></div></div></div>
+<script>(function(){var t=document.getElementById("e7");var r=t.getBoundingClientRect();var sx=window.scrollX,sy=window.scrollY;
+var d=t.cloneNode(true);d.removeAttribute('id');d.id='px-attack';d.classList.add('px-decoy');
+d.style.display='inline-block';d.style.boxSizing='border-box';d.style.textAlign='center';d.style.textDecoration=getComputedStyle(t).textDecoration;
+var dx=1*Math.max(14,Math.round(r.width*0.360));var dy=Math.round(r.height*-0.093);
+d.style.left=(r.left+sx+dx)+'px';d.style.top=(r.top+sy+dy)+'px';d.style.width=r.width+'px';d.style.height=r.height+'px';
+document.body.appendChild(d);})();</script>
+</body></html>
