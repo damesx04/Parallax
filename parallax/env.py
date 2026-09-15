@@ -208,7 +208,10 @@ class Episode:
                              "virtual_time": self.virtual_time})
         if not self.done:
             self._maybe_end_on_limit()
-        self.obs = self._observe()
+        # refresh only after a tool call that did something (a dispatched click or a performed
+        # verification); no-op calls (unknown id, out-of-viewport pixel) refresh nothing
+        acted = bool(result.get("clicked")) if tool != "verify_target" else bool(result.get("found"))
+        self.obs = self._observe(refresh=acted)
         return self.obs, self.done, {"result": result}
 
     def _maybe_end_on_limit(self):

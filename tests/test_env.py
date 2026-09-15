@@ -122,6 +122,22 @@ def test_invalid_action_consumes_step_advances_time_no_refresh(browser):
     ep.close()
 
 
+def test_noop_tool_calls_do_not_refresh(browser):
+    """A valid but no-op call (unknown id / off-viewport pixel / unknown verify id) is a tool
+    call and consumes a step, but refreshes nothing, so it cannot be used as a free layout refresh."""
+    ep = Episode(browser, str(FIX / "reflow.html"), "Click Publish", "#second")
+    obs0 = ep.reset()
+    for act in ({"tool": "click_element", "args": {"node_id": 99999}}, {"tool": "click_coord", "args": {"x": -1, "y": -1}},
+                {"tool": "verify_target", "args": {"node_id": 99999}}):
+        obs, done, info = ep.step(act)
+        assert obs["screenshot_png"] == obs0["screenshot_png"] and obs["tree"] == obs0["tree"]
+    assert ep.tool_calls == 3 and ep.page.evaluate("() => __px.now()") == 3 * ADVANCE_MS
+    # the reflow happened long ago, but the stale observation still fools click_element
+    _, done, info = ep.step({"tool": "click_element", "args": {"node_id": ep.target_id}})
+    assert info["result"]["outcome"] == "wrong_target"
+    ep.close()
+
+
 def test_verify_agrees_on_transparent_text_link(browser):
     ep = Episode(browser, str(FIX / "overlay.html"), "Click Return policy", "#lnk")
     ep.reset()
