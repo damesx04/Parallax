@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Parallax observation",
+  "type": "object",
+  "required": ["task", "tree_text", "tree", "screenshot_png", "history", "verify_crop_png", "step", "max_steps", "token_count", "truncated"],
+  "properties": {
+    "task": {"type": "string"},
+    "tree_text": {"type": "string"},
+    "tree": {"type": "array", "items": {
+      "type": "object",
+      "required": ["id", "role", "name", "states", "box", "depth"],
+      "properties": {
+        "id": {"type": "integer", "minimum": 1},
+        "role": {"type": "string"},
+        "name": {"type": "string"},
+        "states": {"type": "array", "items": {"type": "string"}},
+        "box": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
+        "depth": {"type": "integer", "minimum": 0}
+      }}},
+    "screenshot_png": {"type": "string", "contentEncoding": "base64"},
+    "history": {"type": "array", "items": {
+      "type": "object",
+      "required": ["step", "tool", "args", "result"],
+      "properties": {
+        "step": {"type": "integer"},
+        "tool": {"type": ["string", "null"]},
+        "args": {"type": "object"},
+        "result": {"type": "object"}
+      }}},
+    "verify_crop_png": {"type": ["string", "null"]},
+    "step": {"type": "integer", "minimum": 0},
+    "max_steps": {"type": "integer"},
+    "token_count": {"type": "integer"},
+    "truncated": {"type": "boolean"}
+  }
+}
