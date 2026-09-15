@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "problems": [],
+ "info": {
+  "updates": 100,
+  "updates_with_samples": 21,
+  "planned_updates": 100,
+  "best_adapter_loads": true,
+  "best_lora_B_max": 0.0019732683431357145,
+  "best_dev_episodes_differ_from_base": true,
+  "base_dev_reward": 0.16666666666666666,
+  "best_step": 100,
+  "best_dev_reward": 0.6666666666666666
+ },
+ "timestamp": "2026-09-15T09:48:27"
+}
