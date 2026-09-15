@@ -27,7 +27,7 @@ from parallax.train.logprobs import completion_logprobs, encode_turn
 
 G = 4
 TEMPERATURE = 1.0
-LR = 2e-5
+LR = 1e-4
 KL_BETA = 0.02
 GRAD_CLIP = 1.0
 ADV_EPS = 1e-4

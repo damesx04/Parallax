@@ -48,6 +48,26 @@ def main(argv=None):
             del m
         except Exception as exc:
             problems.append(f"best adapter failed to load: {exc}")
+    # non-triviality: the best adapter must have moved (LoRA B starts at 0) and must behave differently
+    # from the base model on the dev subset (an identity adapter would otherwise pass this check)
+    if (best / "adapter_model.safetensors").exists():
+        from safetensors.torch import load_file
+        sd = load_file(best / "adapter_model.safetensors")
+        bmax = max(float(v.abs().max()) for k, v in sd.items() if "lora_B" in k)
+        info["best_lora_B_max"] = bmax
+        if bmax < 1e-3:
+            problems.append(f"best adapter is (near) identity: max |lora_B| = {bmax:.2e}")
+        state0 = d / "dev_episodes" / "step0000.json"
+        st = json.loads((d / "state.json").read_text()) if (d / "state.json").exists() else {}
+        bstep0 = (st.get("best") or {}).get("step")
+        stateb = d / "dev_episodes" / f"step{bstep0:04d}.json" if bstep0 is not None else None
+        if bstep0 == 0:
+            problems.append("best checkpoint is step 0 (the base model): nothing was learned")
+        elif stateb and stateb.exists() and state0.exists():
+            same = json.dumps(json.load(open(state0)), sort_keys=True) == json.dumps(json.load(open(stateb)), sort_keys=True)
+            info["best_dev_episodes_differ_from_base"] = not same
+            if same:
+                problems.append("best checkpoint's dev episodes are byte-identical to the base model's")
     base = [e for e in dev if e["step"] == 0]
     if not base or not dev:
         problems.append("dev evals missing (need step 0 = base model)")
