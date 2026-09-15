@@ -1,0 +1,28 @@
+[project]
+name = "parallax"
+version = "0.1.0"
+description = "CDP-driven web agent with a node-ID Chrome extension, trained with LoRA+GRPO on Qwen2.5-VL-3B"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch>=2.8",
+    "torchvision",
+    "transformers>=4.56",
+    "peft>=0.17",
+    "trl>=0.23",
+    "accelerate",
+    "qwen-vl-utils",
+    "playwright>=1.55",
+    "pillow",
+    "jsonschema",
+    "pytest",
+    "pytest-asyncio",
+    "numpy",
+    "tiktoken",
+    "safetensors",
+    "huggingface-hub",
+    "psutil",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
