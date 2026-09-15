@@ -5,11 +5,11 @@
 
 ## Per-policy summary
 
-| Policy | Success | Wrong-target episodes (W) | Clicking episodes (K) | No-click episodes | W/K | Verify calls | Invalid outputs |
-|---|---|---|---|---|---|---|---|
-| Baseline A (DOM-only) | 0.0% | 240 | 240 | 0 | 100.0% | 0 | 0 |
-| Baseline B (verify-every-step) | 33.8% | 155 | 236 | 4 | 65.7% | 245 | 0 |
-| Trained policy | 33.8% | 159 | 240 | 0 | 66.2% | 240 | 0 |
+| Policy | Success | Wrong-target episodes (W) | Clicking episodes (K) | No-click episodes | Step-limit rate | W/K | Verify calls | Invalid outputs |
+|---|---|---|---|---|---|---|---|---|
+| Baseline A (DOM-only) | 0.0% | 240 | 240 | 0 | 0.0% | 100.0% | 0 | 0 |
+| Baseline B (verify-every-step) | 33.8% | 155 | 236 | 4 | 1.7% | 65.7% | 245 | 0 |
+| Trained policy | 33.8% | 159 | 240 | 0 | 0.0% | 66.2% | 240 | 0 |
 
 ## Per-category breakdown (success / wrong-target)
 

@@ -27,11 +27,11 @@ def main(argv=None):
     lines = ["# Parallax results (final eval on the 240 held-out pages)", ""]
     lines.append(f"- **M1** (wrong-target clicks, trained vs Baseline A): {fmt(m['M1'])}%" if m["M1"] is not None else "- **M1**: undefined (Baseline A had no wrong-target clicks)")
     lines.append(f"- Degenerate flag: **{m['degenerate']}**" + (f" ({'; '.join(m['degenerate_reasons'])})" if m.get("degenerate_reasons") else ""))
-    lines += ["", "## Per-policy summary", "", "| Policy | Success | Wrong-target episodes (W) | Clicking episodes (K) | No-click episodes | W/K | Verify calls | Invalid outputs |",
-              "|---|---|---|---|---|---|---|---|"]
+    lines += ["", "## Per-policy summary", "", "| Policy | Success | Wrong-target episodes (W) | Clicking episodes (K) | No-click episodes | Step-limit rate | W/K | Verify calls | Invalid outputs |",
+              "|---|---|---|---|---|---|---|---|---|"]
     for p in POLICIES:
         s = m["policies"][p]
-        lines.append(f"| {NAMES[p]} | {fmt(s['success_rate'], True)} | {s['W']} | {s['K']} | {s['N_noclick']} | {fmt(s['W_over_K'], True)} | {s['verify_calls']} | {s['invalid_outputs']} |")
+        lines.append(f"| {NAMES[p]} | {fmt(s['success_rate'], True)} | {s['W']} | {s['K']} | {s['N_noclick']} | {fmt(s['step_limit_rate'], True)} | {fmt(s['W_over_K'], True)} | {s['verify_calls']} | {s['invalid_outputs']} |")
     lines += ["", "## Per-category breakdown (success / wrong-target)", "", "| Category | " + " | ".join(NAMES[p] for p in POLICIES) + " |", "|---|" + "---|" * len(POLICIES)]
     cats = sorted({k for p in POLICIES for k in m["policies"][p]["per_category"]})
     for c in cats:
