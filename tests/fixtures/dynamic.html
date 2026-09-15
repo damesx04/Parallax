@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Dynamic fixture</title>
+<style>body{font-family:sans-serif;margin:20px} #spacer{height:0;background:#eee} .btn{padding:6px 12px;display:block;margin:6px 0}</style></head><body>
+<div id="spacer"></div>
+<div id="list">
+<button class="btn" id="b1">One</button>
+<button class="btn" id="b2">Two</button>
+<button class="btn" id="b3">Three</button>
+</div>
+<script>
+function reflow(px){ document.getElementById('spacer').style.height = px + 'px'; }
+function restyle(){ document.getElementById('b2').style.padding = '20px'; document.getElementById('b2').style.color='red'; }
+function reorder(){ const l=document.getElementById('list'); l.appendChild(document.getElementById('b1')); }
+function detachReattach(){ const b=document.getElementById('b3'); const p=b.parentNode; b.remove(); p.insertBefore(b, p.firstChild); }
+function addNew(){ const b=document.createElement('button'); b.id='b4'; b.className='btn'; b.textContent='Four'; document.getElementById('list').appendChild(b); }
+function clone(){ const c=document.getElementById('b1').cloneNode(true); c.id='b1clone'; c.textContent='One clone'; document.getElementById('list').appendChild(c); }
+</script>
+</body></html>

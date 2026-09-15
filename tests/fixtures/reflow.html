@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Reflow fixture</title>
+<style>body{margin:20px;font-family:sans-serif} .btn{display:block;margin:6px 0;padding:8px 16px;width:200px}
+#loading{height:0;background:#ddd;overflow:hidden}</style>
+<script src="../../parallax/pages/parallax_runtime.js"></script>
+</head><body>
+<div id="loading"></div>
+<button class="btn" id="first">Save draft</button>
+<button class="btn" id="second">Publish</button>
+<script>
+__px.after(500, function(){ document.getElementById('loading').style.height = '48px'; document.getElementById('loading').textContent='Announcement'; });
+</script>
+</body></html>

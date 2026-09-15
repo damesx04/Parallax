@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Static fixture</title>
+<style>body{font-family:sans-serif;margin:20px} .row{margin:8px 0} #hidden{display:none} #vh{visibility:hidden}
+.btn{padding:6px 12px}</style></head><body>
+<header><h1 id="title">Checkout</h1><nav><a href="#a" id="lnk1">Home</a> <a href="#b" id="lnk2">Orders</a></nav></header>
+<main>
+<p id="intro">Review your order and confirm.</p>
+<form>
+<div class="row"><label for="email">Email address</label> <input id="email" type="email" placeholder="you@example.com"></div>
+<div class="row"><label><input type="checkbox" id="gift" checked> Gift wrap</label></div>
+<div class="row"><label for="ship">Shipping</label> <select id="ship"><option>Standard</option><option>Express</option></select></div>
+<div class="row"><button type="button" class="btn" id="cancel">Cancel</button> <button type="button" class="btn" id="place">Place order</button></div>
+<div class="row"><button type="button" id="dis" disabled>Disabled</button> <button type="button" id="lab" aria-label="Close dialog">X</button></div>
+</form>
+<img id="img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Product photo" width="40" height="40">
+<ul><li id="li1">Item one</li><li id="li2">Item two</li></ul>
+<div id="hidden"><button id="hb">Hidden button</button></div>
+<div id="vh"><button id="vhb">Invisible button</button></div>
+<div aria-hidden="true"><button id="ah">Aria hidden</button></div>
+<div id="textblock">Some plain text block</div>
+</main>
+</body></html>
