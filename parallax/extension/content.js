@@ -157,6 +157,10 @@
 
   function includes(el, role) {
     if (INTERACTIVE_ROLES.has(role)) return true;
+    // explicitly roled or labelled elements are accessibility nodes (landmarks, regions, dialogs, widgets)
+    const explicit = el.getAttribute("role");
+    if (explicit && explicit !== "presentation" && explicit !== "none") return true;
+    if (el.hasAttribute("aria-label") || el.hasAttribute("aria-labelledby")) return true;
     if (el.hasAttribute("tabindex") || el.hasAttribute("data-px-clickable")) return true;
     if (STRUCT_ROLES.has(role)) return true;
     if (role === "paragraph" || role === "label") return textOf(el).length > 0;
