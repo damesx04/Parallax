@@ -16,3 +16,5 @@ runs/dev_check/
 .DS_Store
 scratch/
 /ev*l/pages_*/
+.claude/
+runs/guard_log.jsonl
